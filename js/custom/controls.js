@@ -446,8 +446,8 @@ function Controls() {
 	};
 
 	this.playVoice = function(word) {
-		this.word.voice.load();
-		this.word.voice.play();
+		//this.word.voice.load();
+		//this.word.voice.play();
 	};
 
 	//BEWARE, HERE BE DRAGONS
@@ -507,27 +507,6 @@ function Round(min, max) {
 }
 
 function loadVerbs(verbBucket) {
-	$.ajax({
-	    type: "GET",
-	    url: "verbs.xml",
-	    dataType: "xml",
-	    success: function(xml) {
-	        $(xml).find('Verb').each(function() {
-		        var infinitive = $(this).find('Infinitive').text();
-		        var pastSimple = $(this).find('PastSimple').text();
-		        var pastParticiple = $(this).find('PastParticiple').text();
-		        var meaning = [];
-		        $(this).find('Meaning').each(function() {
-		        	meaning.push($(this).text());
-		        });
-		        var newVerb = new Verb(infinitive,pastSimple,pastParticiple,meaning);
-		        verbBucket.push(newVerb);
-	    	});
-
-	    	afterLoad();
-	    },
-	    error: function() {
-	    	alert("An error occurred while processing XML file.");
-	    }
-	});
+	verbBucket = GetVerbBucket();
+	afterLoad();
 }

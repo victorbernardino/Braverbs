@@ -184,11 +184,11 @@ function UserInterface()
 	};
 
 	this.buildMeaning = function(meaningList) {
-		var ulTag = '<ul>';
-		for (meaning in meaningList)
-			ulTag += '<li>'+meaningList[meaning]+'</li>';
+		var ulTag = '<ul><li>';
+		
+			ulTag += meaningList;
 
-		ulTag += '</ul>';
+		ulTag += '</li></ul>';
 
 		return ulTag;
 	};
