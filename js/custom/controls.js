@@ -506,7 +506,8 @@ function Round(min, max) {
 	this.roundVector = verbBucket.slice(min, max+1);
 }
 
-function loadVerbs(verbBucket) {
+function loadVerbs(verbBucket) 
+{
 	verbBucket = GetVerbBucket();
 	afterLoad();
 }
